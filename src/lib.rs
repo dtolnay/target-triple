@@ -1,4 +1,4 @@
-#![doc(html_root_url = "https://docs.rs/target-triple/0.1.0")]
+#![doc(html_root_url = "https://docs.rs/target-triple/0.1.1")]
 
 include!(concat!(env!("OUT_DIR"), "/macros.rs"));
 
