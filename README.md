@@ -1,8 +1,10 @@
 Rustc target triple
 ===================
 
-Access the $TARGET and $HOST rustc target triples that Cargo supplies to build
-scripts.
+Access the $TARGET and $HOST [rustc target triples][platform support] that Cargo
+supplies to build scripts.
+
+[platform support]: https://doc.rust-lang.org/rustc/platform-support.html
 
 ## Example
 
