@@ -36,6 +36,25 @@ jobs:
         if: matrix.rust == 'nightly'
       - run: cargo check
 
+  xplat:
+    name: ${{matrix.name}}
+    needs: pre_ci
+    if: needs.pre_ci.outputs.continue
+    runs-on: ${{matrix.os}}-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: macOS
+            os: macos
+          - name: Windows
+            os: windows
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - run: cargo check
+
   doc:
     name: Documentation
     needs: pre_ci
