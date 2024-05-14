@@ -6,7 +6,11 @@
 
 #![doc(html_root_url = "https://docs.rs/target-triple/0.1.2")]
 
+#[cfg(not(host_os = "windows"))]
 include!(concat!(env!("OUT_DIR"), "/macros.rs"));
+
+#[cfg(host_os = "windows")]
+include!(concat!(env!("OUT_DIR"), "\\macros.rs"));
 
 /// The target triple that is being compiled for.
 pub const TARGET: &str = target!();

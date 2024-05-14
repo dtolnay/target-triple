@@ -23,6 +23,7 @@ macro_rules! host {
 
 fn main() {
     println!("cargo:rerun-if-changed=build.rs");
+    println!("cargo:rustc-check-cfg=cfg(host_os, values(\"windows\"))");
 
     let target = env_var("TARGET");
     let host = env_var("HOST");
@@ -32,6 +33,10 @@ fn main() {
         .replace("{TARGET}", &target.escape_debug().to_string())
         .replace("{HOST}", &host.escape_debug().to_string());
     fs::write(out, macros).unwrap();
+
+    if let Some("windows") = host.split('-').nth(2) {
+        println!("cargo:rustc-cfg=host_os=\"windows\"");
+    }
 }
 
 fn env_var(key: &str) -> String {
