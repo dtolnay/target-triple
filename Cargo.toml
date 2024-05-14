@@ -1,6 +1,6 @@
 [package]
 name = "target-triple"
-version = "0.1.2"
+version = "0.1.3"
 authors = ["David Tolnay <dtolnay@gmail.com>"]
 description = "TARGET and HOST triples"
 documentation = "https://docs.rs/target-triple"
